@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+
+*{
+    font-family: cursive;
+}
+
+body{
+    overflow-y: hidden;
+}
