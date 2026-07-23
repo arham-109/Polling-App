@@ -67,14 +67,16 @@ const Login = () => {
   };
 
   return (
-   <form
-  className="flex flex-col justify-center items-center p-6 sm:p-8 gap-4.5 w-full max-w-md my-8 md:my-20 mx-auto md:border md:border-slate-300 md:shadow-md md:rounded-2xl animate-[fade_3s_ease-in-out_forwards] md:hover:-translate-y-2 md:hover:shadow-2xl md:transition-all md:duration-300"
-  onSubmit={handleLogin}
->
+    <form
+      className="flex flex-col justify-center items-center p-6 sm:p-8 gap-4.5 w-full max-w-md my-8 md:my-20 mx-auto px-4 md:border md:border-slate-300 md:shadow-md md:rounded-2xl animate-[fade_3s_ease-in-out_forwards] md:hover:-translate-y-2 md:hover:shadow-2xl md:transition-all md:duration-300"
+      onSubmit={handleLogin}
+    >
       <div>
         <h1 className="text-4xl font-bold">Login</h1>
       </div>
-      <div className="flex flex-col gap-5 w-100 text-[18px]">
+
+      {/* Changed w-100 to w-full */}
+      <div className="flex flex-col gap-5 w-full text-[18px]">
         <AndInput
           placeholder="Enter Your Email"
           onChange={(e: any) => set_email(e.target.value)}
@@ -84,20 +86,24 @@ const Login = () => {
           onChange={(e: any) => set_password(e.target.value)}
         />
       </div>
+
       <div>
-        <p className="md:w-max">
+        <p className="text-center md:w-max">
           Don't have an account? <Link to="/signup">Signup</Link>
         </p>
       </div>
-      <div className="flex flex-col gap-6">
+
+      {/* Added w-full here and changed buttons from w-100 to w-full */}
+      <div className="flex flex-col gap-6 w-full">
         <button
-          className="border border-white p-3 w-100  bg-indigo-500 text-white hover:bg-indigo-700 hover:text-white transition-all duration-400 cursor-pointer rounded-xl"
-          onSubmit={handleLogin}
+          type="submit"
+          className="border border-white p-3 w-full bg-indigo-500 text-white hover:bg-indigo-700 hover:text-white transition-all duration-400 cursor-pointer rounded-xl"
         >
           Submit
         </button>
         <button
-          className="flex justify-center items-center gap-2 border w-100 rounded-xl p-3 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+          type="button"
+          className="flex justify-center items-center gap-2 border w-full rounded-xl p-3 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
           onClick={googleLogin}
         >
           <img src={Google} alt="google svg" className="h-5 w-5" />
