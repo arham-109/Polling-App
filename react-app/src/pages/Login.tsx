@@ -75,7 +75,6 @@ const Login = () => {
         <h1 className="text-4xl font-bold">Login</h1>
       </div>
 
-      {/* Changed w-100 to w-full */}
       <div className="flex flex-col gap-5 w-full text-[18px]">
         <AndInput
           placeholder="Enter Your Email"
@@ -93,7 +92,6 @@ const Login = () => {
         </p>
       </div>
 
-      {/* Added w-full here and changed buttons from w-100 to w-full */}
       <div className="flex flex-col gap-6 w-full">
         <button
           type="submit"

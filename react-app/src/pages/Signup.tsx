@@ -74,48 +74,52 @@ const Signup = () => {
 
   return (
       <form
-      className="flex flex-col justify-center items-center p-[10%] gap-4.5 md:border md:border-slate-300 md:shadow-md m-20 w-116 h-140 mx-auto md:rounded-2xl animate-[fade_3s_ease-in-out_forwards] md:hover:-translate-y-2 md:hover:shadow-2xl md:transition-all md:duration-300"
-      onSubmit={handleSignup}
-    >
-      <div>
-        <h1 className="text-4xl font-bold">Signup</h1>
-      </div>
-      <div className="flex flex-col gap-5 w-100 text-[18px]">
-        <AndInput
-          placeholder="Enter Your Email"
-          onChange={(e: any) => set_email(e.target.value)}
-        />
+  className="flex flex-col justify-center items-center p-6 sm:p-8 gap-4.5 w-full max-w-md my-8 md:my-20 mx-auto px-4 md:border md:border-slate-300 md:shadow-md md:rounded-2xl animate-[fade_3s_ease-in-out_forwards] md:hover:-translate-y-2 md:hover:shadow-2xl md:transition-all md:duration-300"
+  onSubmit={handleSignup}
+>
+  <div>
+    <h1 className="text-4xl font-bold">Signup</h1>
+  </div>
 
-        <AntdPass
-          placeholder="Enter Password"
-          onChange={(e: any) => set_password(e.target.value)}
-        />
-        <AntdPass
-          placeholder="Confirm Password"
-          onChange={(e: any) => set_confirm(e.target.value)}
-        />
-      </div>
-      <div>
-        <p className="w-max">
-          Already have an account? <Link to="/login">Login</Link>
-        </p>
-      </div>
-      <div className="flex flex-col gap-6">
-        <button
-          className="border border-white p-3 md:w-100 rounded-xl bg-indigo-500 hover:bg-indigo-700 text-white transition-all duration-400 cursor-pointer"
-          type="submit"
-        >
-          Submit
-        </button>
-        <button
-          className="flex justify-center items-center gap-2 border hover:-translate-y-1 transition-all duration-300 w-100 rounded-xl p-3 cursor-pointer"
-          onClick={googleLogin}
-        >
-          <img src={Google} alt="google svg" className="h-5 w-5" />
-          Signup with Google
-        </button>
-      </div>
-    </form>
+  <div className="flex flex-col gap-5 w-full text-[18px]">
+    <AndInput
+      placeholder="Enter Your Email"
+      onChange={(e: any) => set_email(e.target.value)}
+    />
+
+    <AntdPass
+      placeholder="Enter Password"
+      onChange={(e: any) => set_password(e.target.value)}
+    />
+    <AntdPass
+      placeholder="Confirm Password"
+      onChange={(e: any) => set_confirm(e.target.value)}
+    />
+  </div>
+
+  <div className="w-full text-center">
+    <p>
+      Already have an account? <Link to="/login" className="text-indigo-600 font-semibold hover:underline">Login</Link>
+    </p>
+  </div>
+
+  <div className="flex flex-col gap-6 w-full">
+    <button
+      className="border border-white p-3 w-full rounded-xl bg-indigo-500 hover:bg-indigo-700 text-white transition-all duration-400 cursor-pointer"
+      type="submit"
+    >
+      Submit
+    </button>
+    <button
+      type="button"
+      className="flex justify-center items-center gap-2 border hover:-translate-y-1 transition-all duration-300 w-full rounded-xl p-3 cursor-pointer"
+      onClick={googleLogin}
+    >
+      <img src={Google} alt="google svg" className="h-5 w-5" />
+      Signup with Google
+    </button>
+  </div>
+</form>
   );
 };
 
