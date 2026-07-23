@@ -67,10 +67,10 @@ const Login = () => {
   };
 
   return (
-    <form
-      className="flex flex-col justify-center items-center p-[10%] gap-4.5 md:border md:border-slate-300 md:shadow-md m-20 w-116 h-140 mx-auto md:rounded-2xl animate-[fade_3s_ease-in-out_forwards] md:hover:-translate-y-2 md:hover:shadow-2xl md:transition-all md:duration-300"
-      onSubmit={handleLogin}
-    >
+   <form
+  className="flex flex-col justify-center items-center p-6 sm:p-8 gap-4.5 w-full max-w-md my-8 md:my-20 mx-auto md:border md:border-slate-300 md:shadow-md md:rounded-2xl animate-[fade_3s_ease-in-out_forwards] md:hover:-translate-y-2 md:hover:shadow-2xl md:transition-all md:duration-300"
+  onSubmit={handleLogin}
+>
       <div>
         <h1 className="text-4xl font-bold">Login</h1>
       </div>
