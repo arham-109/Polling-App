@@ -17,7 +17,7 @@ const Signup = () => {
   const [email, set_email] = useState("");
   const [password, set_password] = useState("");
   const [confirm, set_confirm] = useState("");
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleSignup = (e: FormEvent) => {
@@ -48,7 +48,7 @@ const Signup = () => {
         dispatch(login(userData as any));
 
         message.success("Signup successful!");
-        Navigate("/");
+        navigate("/");
       })
       .catch((error) => {
         message.error(error.message.replace("Firebase: Error", ""));
@@ -65,7 +65,7 @@ const Signup = () => {
         };
         dispatch(login(userGoogle as any));
         message.success("Google SignIn Sucessfull");
-        Navigate("/");
+        navigate("/");
       })
       .catch((error) => {
         message.error(error.message.replace("Firebase: Error", ""));
@@ -73,8 +73,8 @@ const Signup = () => {
   };
 
   return (
-    <form
-      className="flex flex-col justify-center items-center m-auto p-[10%] gap-10"
+      <form
+      className="flex flex-col justify-center items-center p-[10%] gap-4.5 md:border md:border-slate-300 md:shadow-md m-20 w-116 h-140 mx-auto md:rounded-2xl animate-[fade_3s_ease-in-out_forwards] md:hover:-translate-y-2 md:hover:shadow-2xl md:transition-all md:duration-300"
       onSubmit={handleSignup}
     >
       <div>
@@ -96,19 +96,19 @@ const Signup = () => {
         />
       </div>
       <div>
-        <p>
+        <p className="w-max">
           Already have an account? <Link to="/login">Login</Link>
         </p>
       </div>
       <div className="flex flex-col gap-6">
         <button
-          className="border border-white p-3 w-100 rounded bg-blue-500 hover:bg-blue-700 text-white hover:text-white transition-all duration-400 cursor-pointer"
+          className="border border-white p-3 md:w-100 rounded-xl bg-indigo-500 hover:bg-indigo-700 text-white transition-all duration-400 cursor-pointer"
           type="submit"
         >
           Submit
         </button>
         <button
-          className="flex justify-center items-center gap-2 border hover:-translate-y-1 transition-all duration-300 w-100 rounded p-3 cursor-pointer"
+          className="flex justify-center items-center gap-2 border hover:-translate-y-1 transition-all duration-300 w-100 rounded-xl p-3 cursor-pointer"
           onClick={googleLogin}
         >
           <img src={Google} alt="google svg" className="h-5 w-5" />

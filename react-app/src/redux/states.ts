@@ -1,29 +1,31 @@
-// all the global states will be made here
-// const [user, set_user] = usestate(null)
-
-
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    user: null,
-    isLogin: null,
-}
+  user: null,
+  isLogin: null,
+  isLoading: true,
+};
 
 export const stateSlice = createSlice({
-    name: 'globalStates',
-    initialState,
-    reducers: {
-        login: (state: any, action:any) => {
-            state.user = action.payload
-            state.isLogin = true
-        },
-        logout: (state: any) => {
-            state.user = null
-            state.isLogin = false
-        },
-    }
-})
+  name: "globalStates",
+  initialState,
+  reducers: {
+    login: (state: any, action: any) => {
+      state.user = action.payload;
+      state.isLogin = true;
+      state.isLoading = false;
+    },
+    logout: (state: any) => {
+      state.user = null;
+      state.isLogin = false;
+      state.isLoading = false;
+    },
+    setLoading: (state: any, action: any) => {
+      state.isLoading = action.payload;
+    },
+  },
+});
 
-export const { login, logout } = stateSlice.actions
+export const { login, logout, setLoading } = stateSlice.actions;
 
-export default stateSlice.reducer
+export default stateSlice.reducer;

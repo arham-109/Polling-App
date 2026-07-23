@@ -16,10 +16,8 @@ import { login } from "../redux/states";
 const Login = () => {
   const [email, set_email] = useState("");
   const [password, set_password] = useState("");
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-
-
 
   const handleLogin = (e: FormEvent) => {
     e.preventDefault();
@@ -43,7 +41,7 @@ const Login = () => {
         };
         dispatch(login(userData as any));
         message.success("Login successful");
-        Navigate("/");
+        navigate("/");
       })
       .catch((error) => {
         message.error(error.message.replace("Firebase: Error", ""));
@@ -60,7 +58,7 @@ const Login = () => {
         };
         dispatch(login(userGoogle as any));
         message.success("Google Login Successfull");
-        Navigate("/");
+        navigate("/");
       })
       .catch((error) => {
         console.error(error);
@@ -70,7 +68,7 @@ const Login = () => {
 
   return (
     <form
-      className="flex flex-col justify-center items-center  m-auto p-[10%] gap-10"
+      className="flex flex-col justify-center items-center p-[10%] gap-4.5 md:border md:border-slate-300 md:shadow-md m-20 w-116 h-140 mx-auto md:rounded-2xl animate-[fade_3s_ease-in-out_forwards] md:hover:-translate-y-2 md:hover:shadow-2xl md:transition-all md:duration-300"
       onSubmit={handleLogin}
     >
       <div>
@@ -87,19 +85,19 @@ const Login = () => {
         />
       </div>
       <div>
-        <p>
+        <p className="md:w-max">
           Don't have an account? <Link to="/signup">Signup</Link>
         </p>
       </div>
       <div className="flex flex-col gap-6">
         <button
-          className="border border-white p-3 w-100 rounded bg-blue-500 text-white hover:bg-blue-700 hover:text-white transition-all duration-400 cursor-pointer"
+          className="border border-white p-3 w-100  bg-indigo-500 text-white hover:bg-indigo-700 hover:text-white transition-all duration-400 cursor-pointer rounded-xl"
           onSubmit={handleLogin}
         >
           Submit
         </button>
         <button
-          className="flex justify-center items-center gap-2 border w-100 rounded p-3 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+          className="flex justify-center items-center gap-2 border w-100 rounded-xl p-3 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
           onClick={googleLogin}
         >
           <img src={Google} alt="google svg" className="h-5 w-5" />
